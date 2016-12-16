@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Dataset van het weerstation </title>
+       
+        <link rel="stylesheet" href="dataset.css">
+
+ <script type="text/javascript">
+ 
+	function start()
+	{
+	  xhr=new XMLHttpRequest();
+	  if (xhr==null)
+	  {
+		alert ('Probleem met het maken van het XMLHttpRequest object');
+		return;
+	  }
+	  var url="test.txt";
+	
+	  xhr.onreadystatechange=toonAntwoord;
+	  xhr.open("GET",url,true);
+	  xhr.send(null);
+	}
+	
+	function toonAntwoord()
+	{
+	   if (xhr.readyState==4 && xhr.status==200)
+	   {
+		  document.getElementById("tekstBox").innerHTML=xhr.responseText;
+	   }
+	}   
+  </script>
+  </script>
+    </head>
+    <body onload="start()">
+  
+    <hr/>
+        <p>
+            <h1>vochtigheids grafiek</h1>
+            <img alt="vochtigheids grafiek" src="vochtigheid.png"/>
+            <hr/>
+           <h1>temperatuurs grafiek</h1>
+            <img alt="temeratuurs grafiek" src="temperatuur.png"/>
+        </p>
+       <hr/>
+  
+<div id="tekstBox"></div>
+    </body>
+</html>
